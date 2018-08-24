@@ -20,7 +20,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $homeText = session('homeText', 'HOMEE TEXT');
+        if(!session('homeText')){
+            session(['homeText'=>'HOMEE TEXT']);
+        }
+
         return view('home');
 
     }
